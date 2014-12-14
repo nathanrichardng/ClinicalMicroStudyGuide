@@ -1,0 +1,48 @@
+<div>
+	<h1 class='text-center'>Bacteria Flashcards</h1>
+	<hr>
+
+	<div class='sidebar col-md-4 col-sm-12 col-xs-12'>
+		<form class='form-horizontal' role='form'>
+			<div class='col-md-12 col-sm-12 col-xs-12'>
+				<label for='posInput'>Search:</label>
+				<input class='form-control' id='posInput' type='text' data-ng-model='posQuery' placeholder='positive tests'>
+				<input class='form-control' id='negInput' type='text' data-ng-model='negQuery' placeholder='negative tests'>
+				<button data-ng-click='reset()' class='pull-right btn btn-info col-md-12 col-sm-12 col-xs-12'>Reset</button>
+			</div>
+		</form>
+		<div class='sidebar col-md-12 col-sm-12 col-xs-12'>
+			<div class='col-md-12 col-sm-12 col-xs-12'>
+				<h3>Gram Stain</h3>
+				<button data-ng-class='GSNegBtn' data-ng-click='toggleGSNeg()' class='btn btn-info col-md-6 col-sm-6 col-xs-6'>-</button>
+				<button data-ng-class='GSPosBtn' data-ng-click='toggleGSPos()' class='btn btn-primary col-md-6 col-sm-6 col-xs-6'>+</button>
+			</div>
+			<div class='clearfix'></div>
+			<div class='col-md-12 col-sm-12 col-xs-12 test' data-ng-repeat='test in tests | filter: algorithmFilter'>
+				<h3>{{test.testName}}</h3>
+				<button data-ng-class='test.negBtn' data-ng-click='toggleNeg(test)' class='btn btn-info col-md-6 col-sm-6 col-xs-6'>-</button>
+				<button data-ng-class='test.posBtn' data-ng-click='togglePos(test)' class='btn btn-primary col-md-6 col-sm-6 col-xs-6'>+</button>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class='spacer col-md-8 col-sm-12 col-xs-12'>
+			<div class='spacer'></div>
+			<div class='col-md-4 col-xs-12 flashcards' data-ng-repeat='microbe in microbes | filter: posTestFilter | filter: negTestFilter | filter: buttonFilters | orderBy:gs | orderBy:microbeName'>
+				<div class='widget' data-ng-click='selectMicrobe(microbe)'>
+					<div class='header'>
+						<div class='table'>
+							<h4>{{microbe.microbeName}}</h4>
+						</div>
+					</div>
+					<ul>
+						<li>{{microbe.gs}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class='clearfix'></div>
+	</div>
+	
+	
+</div>

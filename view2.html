@@ -1,0 +1,30 @@
+<div class='container'>
+	<h2>{{selected.microbeName}}</h2>
+	<p>{{selected.gs}}</p>
+	<div>
+		<table class='col-md-6 col-sm-6 col-xs-12 table-striped table-bordered table-hover'>
+			<thead>
+				<tr>
+					<th href="#">Tests positive (+) for:</th>
+				</tr>
+			</thead>
+			<tr data-ng-repeat='(key, prop) in selected.pos'>
+				<td>{{prop}}</td>
+			</tr>
+		</table>
+		<table class='col-md-6 col-sm-6 col-xs-12 table-striped table-bordered table-hover'>
+			<thead>
+				<tr>
+					<th href="#">Tests negative (-) for:</th>
+				</tr>
+			</thead>
+			<tr data-ng-repeat='(key, prop) in selected.neg'>
+				<td>{{prop}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class='clearfix'></div>
+	<div class='spacer'></div>
+	<a href='#view1'>Back</a>
+	<div class='bigSpacer'></div>
+</div>
